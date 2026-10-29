@@ -1,0 +1,166 @@
+#api call fro signup
+###
+POST http://127.0.0.1:8000/filim/signup/
+Content-Type: application/json
+
+{
+    "username":"admin",
+    "password":"password@123",
+    "email":"admin@gmail.com"
+}
+
+#api call for token
+###
+POST  http://127.0.0.1:8000/filim/token/
+Content-Type: application/json
+
+{
+    "username":"admin",
+    "password":"password@123"
+}
+#token user1-Token 3ee901680bf0a0172bc50cc671c8ba01437cb5ba
+#admin 8ea2c2bb4c1213127a8a4554e29d240c8d164aa0
+
+
+#=====movie endpoints====
+
+#api call for list all movies
+###
+GET  http://127.0.0.1:8000/filim/movie/
+Accept: application/json
+Authorization: Token 3ee901680bf0a0172bc50cc671c8ba01437cb5ba
+
+
+#api call for create movie
+###
+POST http://127.0.0.1:8000/filim/movie/
+Content-Type: application/json
+Authorization: Token 3ee901680bf0a0172bc50cc671c8ba01437cb5ba
+
+{
+    "title": "3 Idiots",
+    "run_time": 170,
+    "rating": "8.4",
+    "language": "hindi",
+    "genre": "comedy",
+    "released_year": 2009
+}
+
+#api call for retrieve specific movie
+###
+GET http://127.0.0.1:8000/filim/movie/1/
+Accept: application/json
+Authorization: Token 3ee901680bf0a0172bc50cc671c8ba01437cb5ba
+
+#api call for update movie
+###
+PUT http://127.0.0.1:8000/filim/movie/1/
+Content-Type: application/json
+Authorization: Token 3ee901680bf0a0172bc50cc671c8ba01437cb5ba
+
+{
+  "id": 1,
+  "title": "Premam",
+  "run_time": 160,
+  "rating": "8.3",
+  "language": "malayalam",
+  "genre": "drama",
+  "released_year": 2015,
+  "created_at": "2026-10-26T16:07:24.932943Z",
+  "updated_at": "2026-10-26T16:07:24.932978Z",
+  "created_by": 1
+}
+
+#api call for delete movie
+###
+DELETE http://127.0.0.1:8000/filim/movie/5/
+Accept: application/json
+Authorization: Token 3ee901680bf0a0172bc50cc671c8ba01437cb5ba
+
+
+======song endpoints=====
+#api call for create song
+###
+POST http://127.0.0.1:8000/music/movie/1/song/
+Content-Type: application/json
+Authorization: Token 3ee901680bf0a0172bc50cc671c8ba01437cb5ba
+
+{
+    "title": "Aluva Puzha",
+    "singer": "Vineeth Sreenivasan",
+    "duration": 4,
+    "track_number":3
+}
+
+#api call for retrieve specific song
+###
+GET http://127.0.0.1:8000/music/song/1/
+Accept: application/json
+Authorization: Token 3ee901680bf0a0172bc50cc671c8ba01437cb5ba
+
+#api call for update song
+###
+PUT  http://127.0.0.1:8000/music/song/1/
+Content-Type: application/json
+Authorization: Token 3ee901680bf0a0172bc50cc671c8ba01437cb5ba
+
+{
+  "id": 1,
+  "title": "Malare",
+  "track_number": 2,
+  "singer": "Vijay Yesudas",
+  "duration": 5,
+  "created_at": "2026-10-26T16:44:02.676738Z",
+  "updated_at": "2026-10-26T16:44:02.676793Z",
+  "moviename": 1,
+  "created_by": 1
+}
+
+#api call for delete song
+###
+DELETE http://127.0.0.1:8000/music/song/1/
+Accept: application/json
+Authorization: Token 3ee901680bf0a0172bc50cc671c8ba01437cb5ba
+
+====review endpoints====
+
+#api call for create review
+###
+POST http://127.0.0.1:8000/feedback/movie/1/review/
+Content-Type: application/json
+Authorization: Token 3ee901680bf0a0172bc50cc671c8ba01437cb5ba
+
+{
+    "message": "Excellent movie with a great story!",
+    "rating": 9.0
+}
+#api call for retrieve specific review
+###
+GET http://127.0.0.1:8000/feedback/1/review/
+Accept: application/json
+Authorization: Token 3ee901680bf0a0172bc50cc671c8ba01437cb5ba
+
+#api call for update review
+###
+PUT http://127.0.0.1:8000/feedback/1/review/
+Content-Type: application/json
+Authorization: Token 3ee901680bf0a0172bc50cc671c8ba01437cb5ba
+
+{
+  "id": 2,
+  "message": "A brilliant thriller with an engaging story and unexpected twists.",
+  "rating": 8.0,
+  "created_at": "2026-10-27T16:46:17.352089Z",
+  "updated_at": "2026-10-27T16:46:17.352115Z",
+  "movie": 2,
+  "owner": 1
+}
+
+
+#api call for delete review
+###
+DELETE http://127.0.0.1:8000/feedback/3/review/
+Accept: application/json
+Authorization: Token 3ee901680bf0a0172bc50cc671c8ba01437cb5ba
+
+
